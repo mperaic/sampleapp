@@ -1,10 +1,10 @@
 class User < ApplicationRecord
-<<<<<<< HEAD
+#<<<<<<< HEAD
   attr_accessor :remember_token, :activation_token, :reset_token
-=======
+#=======
   has_many :microposts, dependent: :destroy
   attr_accessor :remember_token, :activation_token
->>>>>>> user-microposts
+#>>>>>>> user-microposts
   before_save   :downcase_email
   before_create :create_activation_digest
   validates :name,  presence: true, length: { maximum: 50 }
@@ -56,7 +56,7 @@ class User < ApplicationRecord
     UserMailer.account_activation(self).deliver_now
   end
 
-<<<<<<< HEAD
+#<<<<<<< HEAD
   # Sets the password reset attributes.
   def create_reset_digest
     self.reset_token = User.new_token
@@ -74,13 +74,13 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
-=======
+#=======
   # Defines a proto-feed.
   # See "Following users" for the full implementation.
   def feed
     Micropost.where("user_id = ?", id)
   end
->>>>>>> user-microposts
+#>>>>>>> user-microposts
   private
 
     # Converts email to all lower-case.
